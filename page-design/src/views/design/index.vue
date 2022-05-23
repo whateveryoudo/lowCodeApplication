@@ -1,16 +1,17 @@
 <!--
  * @Author: ykx
  * @Date: 2022-05-20 17:12:11
- * @LastEditTime: 2022-05-20 17:13:24
+ * @LastEditTime: 2022-05-23 10:43:40
  * @LastEditors: your name
  * @Description: 
  * @FilePath: \page-design\src\views\design\index.vue
 -->
 <template>
-   <div>设计界面</div>
+      <PageDesign/>
 </template>
 
 <script setup lang="ts">
+import PageDesign from '@pDesign/index.vue'
 import { ref } from '@vue/reactivity';
 </script>
 
