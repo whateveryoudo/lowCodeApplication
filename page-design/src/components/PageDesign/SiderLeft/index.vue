@@ -1,7 +1,7 @@
 <!--
  * @Author: ykx
  * @Date: 2022-05-23 10:35:23
- * @LastEditTime: 2022-05-23 19:20:04
+ * @LastEditTime: 2022-05-23 19:39:39
  * @LastEditors: your name
  * @Description: 左侧组件选择
  * @FilePath: \page-design\src\components\PageDesign\SiderLeft\index.vue
@@ -29,7 +29,12 @@
         </li>
       </ul>
     </div>
-    <DrawContent v-if="drawVisible" :drawLayout="drawLayout" @triggerChange="handleChangeDraw" />
+    <DrawContent
+      v-if="drawVisible"
+      :drawLayout="drawLayout"
+      @changeVisible="handleChangeDraw"
+      @changeLayout="handleChangeLayout"
+    />
   </div>
 </template>
 
@@ -39,7 +44,7 @@ import DrawContent from "./DrawContent.vue";
 import { usePageDesignStore } from "@/store/modules/pageDesign";
 const pageDesignStore = usePageDesignStore();
 const drawVisible = ref(false);
-const drawLayout = ref('float');
+const drawLayout = ref("block");
 const leftNavData = pageDesignStore.leftNavData;
 const showNavDraw = (key) => {
   drawVisible.value = true;
@@ -47,6 +52,9 @@ const showNavDraw = (key) => {
 };
 function handleChangeDraw(flag: boolean = true) {
   drawVisible.value = flag;
+}
+function handleChangeLayout(type: string) {
+  drawLayout.value = type;
 }
 </script>
 

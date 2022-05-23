@@ -1,7 +1,7 @@
 <!--
  * @Author: ykx
  * @Date: 2022-05-23 15:52:40
- * @LastEditTime: 2022-05-23 19:23:09
+ * @LastEditTime: 2022-05-23 19:41:43
  * @LastEditors: your name
  * @Description: 抽屉内容显示
  * @FilePath: \page-design\src\components\PageDesign\SiderLeft\DrawContent.vue
@@ -14,7 +14,12 @@
   >
     <header class="flex pl-2 pr-2 justify-between items-center h-12">
       <span class="text-xl">{{ currentNav.title }}</span>
-      <CloseOutlined @click="toggleDraw" />
+      <span class="operate-icons flex justify-between items-center">
+        <svg class="icon" aria-hidden="true" @click="emitLayout('float')">
+          <use :xlink:href="'#' + 'icon-removefixed'"></use>
+        </svg>
+        <CloseOutlined @click="emitDraw" />
+      </span>
     </header>
     <div class="content pt-2">
       <DomTree v-if="currentNav.key === 'catalog'" />
@@ -25,7 +30,12 @@
   <div class="draw-content-wrapper float-layout" v-if="drawLayout === 'float'">
     <header class="flex pl-2 pr-2 justify-between items-center h-12">
       <span class="text-xl">{{ currentNav.title }}</span>
-      <CloseOutlined @click="toggleDraw" />
+      <span class="operate-icons flex justify-between items-center">
+        <svg class="icon" aria-hidden="true" @click="emitLayout('block')">
+          <use :xlink:href="'#' + 'icon-fixed_fill'"></use>
+        </svg>
+        <CloseOutlined @click="emitDraw" />
+      </span>
     </header>
     <div class="content pt-2">
       <DomTree v-if="currentNav.key === 'catalog'" />
@@ -40,7 +50,7 @@ import { usePageDesignStore } from "@/store/modules/pageDesign";
 import DomTree from "./DomTree.vue";
 import ComponentPanel from "./Component.vue";
 import { CloseOutlined } from "@ant-design/icons-vue";
-const emit = defineEmits(["trigger-change"]);
+const emit = defineEmits(["changeVisible", "changeLayout"]);
 const props = defineProps({
   // 布局方式， 默认 block - 占用文档流，
   drawLayout: {
@@ -50,8 +60,11 @@ const props = defineProps({
 });
 const pageDesignStore = usePageDesignStore();
 const currentNav = computed(() => pageDesignStore.currentNav);
-function toggleDraw() {
-  emit("trigger-change", false);
+function emitDraw() {
+  emit("changeVisible", false);
+}
+function emitLayout(type: string) {
+  emit("changeLayout", type);
 }
 </script>
 
@@ -59,6 +72,13 @@ function toggleDraw() {
 .draw-content-wrapper {
   width: var(--left-draw-width);
   background-color: var(--color-panel-bg);
+  .operate-icons {
+    width: 40px;
+    flex-shrink: 0;
+    svg {
+      cursor: pointer;
+    }
+  }
   .content {
     height: calc(100% - 48px);
     overflow-y: auto;
