@@ -1,20 +1,18 @@
 <!--
  * @Author: ykx
  * @Date: 2022-05-20 17:12:11
- * @LastEditTime: 2022-05-23 10:43:40
+ * @LastEditTime: 2022-05-24 18:30:13
  * @LastEditors: your name
  * @Description: 
  * @FilePath: \page-design\src\views\design\index.vue
 -->
 <template>
-      <PageDesign/>
+  <PageDesign />
 </template>
 
 <script setup lang="ts">
-import PageDesign from '@pDesign/index.vue'
-import { ref } from '@vue/reactivity';
+import PageDesign from "@pDesign/index.vue";
+import { ref } from "@vue/reactivity";
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>

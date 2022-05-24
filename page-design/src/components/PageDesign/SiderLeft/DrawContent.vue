@@ -1,7 +1,7 @@
 <!--
  * @Author: ykx
  * @Date: 2022-05-23 15:52:40
- * @LastEditTime: 2022-05-23 19:41:43
+ * @LastEditTime: 2022-05-24 18:42:30
  * @LastEditors: your name
  * @Description: 抽屉内容显示
  * @FilePath: \page-design\src\components\PageDesign\SiderLeft\DrawContent.vue
@@ -13,11 +13,9 @@
     v-if="drawLayout === 'block'"
   >
     <header class="flex pl-2 pr-2 justify-between items-center h-12">
-      <span class="text-xl">{{ currentNav.title }}</span>
+      <span class="text-lg font-bold">{{ currentNav.title }}</span>
       <span class="operate-icons flex justify-between items-center">
-        <svg class="icon" aria-hidden="true" @click="emitLayout('float')">
-          <use :xlink:href="'#' + 'icon-removefixed'"></use>
-        </svg>
+        <DSvgIcon iconType="icon-removefixed" @click="emitLayout('float')" />
         <CloseOutlined @click="emitDraw" />
       </span>
     </header>
@@ -29,11 +27,9 @@
   <!-- 非绝对定位显示 -->
   <div class="draw-content-wrapper float-layout" v-if="drawLayout === 'float'">
     <header class="flex pl-2 pr-2 justify-between items-center h-12">
-      <span class="text-xl">{{ currentNav.title }}</span>
+      <span class="text-lg font-bold">{{ currentNav.title }}</span>
       <span class="operate-icons flex justify-between items-center">
-        <svg class="icon" aria-hidden="true" @click="emitLayout('block')">
-          <use :xlink:href="'#' + 'icon-fixed_fill'"></use>
-        </svg>
+        <DSvgIcon iconType="icon-fixed_fill" @click="emitLayout('block')" />
         <CloseOutlined @click="emitDraw" />
       </span>
     </header>
@@ -51,7 +47,7 @@ import DomTree from "./DomTree.vue";
 import ComponentPanel from "./Component.vue";
 import { CloseOutlined } from "@ant-design/icons-vue";
 const emit = defineEmits(["changeVisible", "changeLayout"]);
-const props = defineProps({
+defineProps({
   // 布局方式， 默认 block - 占用文档流，
   drawLayout: {
     type: String,

@@ -1,7 +1,7 @@
 /*
  * @Author: ykx
  * @Date: 2022-05-23 17:00:32
- * @LastEditTime: 2022-05-23 18:39:17
+ * @LastEditTime: 2022-05-24 15:24:56
  * @LastEditors: your name
  * @Description:
  * @FilePath: \page-design\src\store\modules\pageDesign.ts
@@ -22,10 +22,10 @@ export const usePageDesignStore = defineStore({
   state: (): PageDesignState => {
     return {
       leftNavData: [
-        { title: "目录树", key: "catalog", icon: "icon-tree" },
+        { title: "目录树", key: "catalog", icon: "icon-tree",  },
         { title: "组件", key: "component", icon: "icon-component" },
       ],
-      currentNav: {},
+      currentNav: { title: "组件", key: "component", icon: "icon-component" },
     };
   },
   actions: {

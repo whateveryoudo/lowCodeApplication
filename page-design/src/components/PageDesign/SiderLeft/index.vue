@@ -1,7 +1,7 @@
 <!--
  * @Author: ykx
  * @Date: 2022-05-23 10:35:23
- * @LastEditTime: 2022-05-23 19:39:39
+ * @LastEditTime: 2022-05-24 18:43:13
  * @LastEditors: your name
  * @Description: 左侧组件选择
  * @FilePath: \page-design\src\components\PageDesign\SiderLeft\index.vue
@@ -21,9 +21,7 @@
           <a-tooltip placement="right">
             <template #title>{{ item.title }}</template>
             <span class="nav-item-icon flex justify-center items-center">
-              <svg class="icon" aria-hidden="true">
-                <use :xlink:href="'#' + item.icon"></use>
-              </svg>
+              <DSvgIcon :iconType="item.icon" />
             </span>
           </a-tooltip>
         </li>
@@ -43,7 +41,7 @@ import { ref, reactive } from "@vue/reactivity";
 import DrawContent from "./DrawContent.vue";
 import { usePageDesignStore } from "@/store/modules/pageDesign";
 const pageDesignStore = usePageDesignStore();
-const drawVisible = ref(false);
+const drawVisible = ref(true);
 const drawLayout = ref("block");
 const leftNavData = pageDesignStore.leftNavData;
 const showNavDraw = (key) => {

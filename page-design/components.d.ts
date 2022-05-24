@@ -5,6 +5,10 @@ import '@vue/runtime-core'
 
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
+    AInputSearch: typeof import('ant-design-vue/es')['InputSearch']
+    ATabPane: typeof import('ant-design-vue/es')['TabPane']
+    ATabs: typeof import('ant-design-vue/es')['Tabs']
+    ATag: typeof import('ant-design-vue/es')['Tag']
     ATooltip: typeof import('ant-design-vue/es')['Tooltip']
     Component: typeof import('./src/components/PageDesign/SiderLeft/Component.vue')['default']
     DomTree: typeof import('./src/components/PageDesign/SiderLeft/DomTree.vue')['default']
@@ -12,12 +16,19 @@ declare module '@vue/runtime-core' {
     DrawContent: typeof import('./src/components/PageDesign/SiderLeft/DrawContent.vue')['default']
     Drawer: typeof import('./src/components/PageDesign/SiderLeft/Drawer.vue')['default']
     DrawerContent: typeof import('./src/components/PageDesign/SiderLeft/DrawerContent.vue')['default']
+    Empty: typeof import('./src/components/GlobalComponents/Empty/index.vue')['default']
+    FrameEditor: typeof import('./src/components/PageDesign/FrameEditor/index.vue')['default']
     Header: typeof import('./src/components/PageDesign/Header/index.vue')['default']
     HelloWorld: typeof import('./src/components/HelloWorld.vue')['default']
     PageDesign: typeof import('./src/components/PageDesign/index.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+    ScrollView: typeof import('./src/components/globalComponents/ScrollView.vue')['default']
     SiderLeft: typeof import('./src/components/PageDesign/SiderLeft/index.vue')['default']
+    SiderRight: typeof import('./src/components/PageDesign/SiderRight/index.vue')['default']
+    SvgIcon: typeof import('./src/components/GlobalComponents/SvgIcon.vue')['default']
+    TagGroup: typeof import('./src/components/GlobalComponents/TagGroup/index.vue')['default']
+    Toolbar: typeof import('./src/components/PageDesign/FrameEditor/Toolbar.vue')['default']
   }
 }
 

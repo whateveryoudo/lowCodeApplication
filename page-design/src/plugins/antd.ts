@@ -20,6 +20,7 @@ import {
   Select,
   DatePicker,
   Tooltip,
+  Tabs
 } from "ant-design-vue";
 import type { App } from "vue";
 export function setupAntd(app: App<Element>) {
@@ -28,6 +29,7 @@ export function setupAntd(app: App<Element>) {
     .use(Input)
     .use(Modal)
     .use(Table)
+    .use(Tabs)
     .use(Menu)
     .use(Card)
     .use(Checkbox)
